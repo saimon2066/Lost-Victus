@@ -1,23 +1,20 @@
-﻿using System;
-using Game.Input;
+﻿using Game.Input;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Game
+namespace Player
 {
-    public class MovementController : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
         [Header("Settings")] 
-        
         [SerializeField] 
         private float _speed;
         [SerializeField] 
         private float _walkFrequency;
         [SerializeField] 
         private float _stayFrequency;
-
+        [Space]
         [Header("References")] 
-        
         [SerializeField]
         private CinemachineCamera _playerCinemachine;
         [SerializeField]
@@ -37,7 +34,7 @@ namespace Game
             
             _playerCinemachineNoise.FrequencyGain = moveAxis != Vector2.zero ? _walkFrequency : _stayFrequency;
             
-            Vector3 motion = ((moveAxis.y * transform.forward + moveAxis.x * transform.right) * _speed + Physics.gravity) * Time.deltaTime;
+            Vector3 motion = ((moveAxis.y * _characterController.transform.forward + moveAxis.x * _characterController.transform.right) * _speed + Physics.gravity) * Time.deltaTime;
             _characterController.Move(motion);
         }
 
@@ -45,7 +42,7 @@ namespace Game
         private void LateUpdate()
         {
             Quaternion rot = Quaternion.Euler(0f, _playerCinemachine.transform.eulerAngles.y, 0f);
-            transform.rotation = rot;
+            _characterController.transform.rotation = rot;
         }
     }
 }

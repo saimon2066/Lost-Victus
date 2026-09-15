@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6632538063955098010}
   - component: {fileID: 8515278789355900370}
-  - component: {fileID: 7665206718212275226}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3955427847112859713}
   - {fileID: 268654692857117595}
+  - {fileID: 2669266662868781088}
   m_Father: {fileID: 556731408373352211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8515278789355900370
@@ -60,24 +60,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &7665206718212275226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478303309575039351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2714ad24617d49349fd435982649b8ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.MovementController
-  _speed: 5
-  _walkFrequency: 2
-  _stayFrequency: 0.5
-  _playerCinemachine: {fileID: 188526330160354072}
-  _playerCinemachineNoise: {fileID: 6403569869180796213}
-  _characterController: {fileID: 8515278789355900370}
 --- !u!1 &2655206316373201786
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +74,7 @@ GameObject:
   - component: {fileID: 1824816990538387843}
   - component: {fileID: 6403569869180796213}
   - component: {fileID: 6040261784979619495}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCinemachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2655206316373201786}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.06251666, y: -0.26108685, z: -0.016946945, w: 0.9631397}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -185,7 +167,7 @@ MonoBehaviour:
   ReferenceFrame: 1
   RecenterTarget: 0
   PanAxis:
-    Value: 0
+    Value: -30.334352
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -195,7 +177,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   TiltAxis:
-    Value: 0
+    Value: -7.427615
     Center: 0
     Range: {x: -70, y: 70}
     Wrap: 0
@@ -256,12 +238,43 @@ MonoBehaviour:
         InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
         Gain: -10
         CancelDeltaTime: 0
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0.2
         DecelTime: 0.2
   PlayerIndex: -1
   AutoEnableInputs: 1
+--- !u!1 &2738817044484731778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2669266662868781088}
+  m_Layer: 3
+  m_Name: HandTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2669266662868781088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738817044484731778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6632538063955098010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3782812756551075760
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 268654692857117595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TrackingTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +315,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 556731408373352211}
-  m_Layer: 0
+  - component: {fileID: 4068284151041108915}
+  - component: {fileID: 9137500905482034484}
+  - component: {fileID: 2291024884274755229}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,6 +342,58 @@ Transform:
   - {fileID: 6632538063955098010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4068284151041108915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888671555569957384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d3a13189ab4c2d9fa9a46d67f0fa84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
+  PlayerInteraction: {fileID: 2291024884274755229}
+  PlayerMovement: {fileID: 9137500905482034484}
+  PlayerCinemachine: {fileID: 188526330160354072}
+  HandTransform: {fileID: 2669266662868781088}
+--- !u!114 &9137500905482034484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888671555569957384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2714ad24617d49349fd435982649b8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerMovement
+  _speed: 5
+  _walkFrequency: 2
+  _stayFrequency: 1
+  _playerCinemachine: {fileID: 188526330160354072}
+  _playerCinemachineNoise: {fileID: 6403569869180796213}
+  _characterController: {fileID: 8515278789355900370}
+--- !u!114 &2291024884274755229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888671555569957384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891eee1e2b6c4238b04f1a4b9d71a049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.InteractionController
+  _interactMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _interactDistance: 3
+  ThrowPower: 10
+  _playerController: {fileID: 4068284151041108915}
 --- !u!1 &6620159130123588771
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +405,7 @@ GameObject:
   - component: {fileID: 5323367608029219959}
   - component: {fileID: 3612524359993081704}
   - component: {fileID: 4164284594862110012}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3955427847112859713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
