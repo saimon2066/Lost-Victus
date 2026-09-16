@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
+    [RequireComponent(typeof(PlayerController))]
     public class PlayerInteraction : MonoBehaviour
     {
         [Header("Settings")] 
@@ -12,13 +13,15 @@ namespace Player
         private LayerMask _interactMask;
         [SerializeField]
         private float _interactDistance;
-        [Space]
         [Header("Throw settings")] 
         public float ThrowPower;
-        [Space]
-        [Header("References")] 
-        [SerializeField]
+        
         private PlayerController _playerController;
+
+        private void Awake()
+        {
+            _playerController = GetComponent<PlayerController>();
+        }
 
         private void OnEnable()
         {

@@ -1,9 +1,11 @@
-﻿using Game.Input;
+﻿using System;
+using Game.Input;
 using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Player
 {
+    [RequireComponent(typeof(PlayerController))]
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Settings")] 
@@ -13,14 +15,15 @@ namespace Player
         private float _walkFrequency;
         [SerializeField] 
         private float _stayFrequency;
-        [Space]
-        [Header("References")] 
-        [SerializeField]
-        private CinemachineCamera _playerCinemachine;
-        [SerializeField]
-        private CinemachineBasicMultiChannelPerlin _playerCinemachineNoise;
-        [SerializeField] 
-        private CharacterController _characterController;
+
+        private PlayerController _playerController;
+
+        private bool _isFrozen;
+
+        private void Awake()
+        {
+            _playerController = GetComponent<PlayerController>();
+        }
 
         private void Start()
         {
@@ -30,19 +33,45 @@ namespace Player
 
         private void Update()
         {
+            if (_isFrozen)
+            {
+                return;
+            }
+            
             Vector2 moveAxis = InputManager.Instance.Inputs.Player.Move.ReadValue<Vector2>();
             
-            _playerCinemachineNoise.FrequencyGain = moveAxis != Vector2.zero ? _walkFrequency : _stayFrequency;
+            _playerController.PlayerCinemachineNoise.FrequencyGain = moveAxis != Vector2.zero ? _walkFrequency : _stayFrequency;
             
-            Vector3 motion = ((moveAxis.y * _characterController.transform.forward + moveAxis.x * _characterController.transform.right) * _speed + Physics.gravity) * Time.deltaTime;
-            _characterController.Move(motion);
+            Vector3 motion = ((moveAxis.y * _playerController.CharacterController.transform.forward + moveAxis.x * _playerController.CharacterController.transform.right) * _speed + Physics.gravity) * Time.deltaTime;
+            _playerController.CharacterController.Move(motion);
         }
 
         // cinemachine works in late update
         private void LateUpdate()
         {
-            Quaternion rot = Quaternion.Euler(0f, _playerCinemachine.transform.eulerAngles.y, 0f);
-            _characterController.transform.rotation = rot;
+            if (_isFrozen)
+            {
+                return;
+            }
+            
+            Quaternion rot = Quaternion.Euler(0f, _playerController.PlayerCinemachine.transform.eulerAngles.y, 0f);
+            _playerController.CharacterController.transform.rotation = rot;
+        }
+
+        public void Freeze()
+        {
+            _isFrozen = true;
+            _playerController.PlayerCinemachinePanTilt.enabled = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        public void Unfreeze()
+        {
+            _isFrozen = false;
+            _playerController.PlayerCinemachinePanTilt.enabled = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

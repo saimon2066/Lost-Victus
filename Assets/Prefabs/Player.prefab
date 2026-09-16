@@ -89,13 +89,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2655206316373201786}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06251666, y: -0.26108685, z: -0.016946945, w: 0.9631397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 556731408373352211}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7.428, y: 0, z: 0}
 --- !u!114 &188526330160354072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   ReferenceFrame: 1
   RecenterTarget: 0
   PanAxis:
-    Value: -30.334352
+    Value: 0
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -177,7 +177,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   TiltAxis:
-    Value: -7.427615
+    Value: 0
     Center: 0
     Range: {x: -70, y: 70}
     Wrap: 0
@@ -354,9 +354,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d3a13189ab4c2d9fa9a46d67f0fa84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
+  CharacterController: {fileID: 8515278789355900370}
   PlayerInteraction: {fileID: 2291024884274755229}
   PlayerMovement: {fileID: 9137500905482034484}
   PlayerCinemachine: {fileID: 188526330160354072}
+  PlayerCinemachineNoise: {fileID: 6403569869180796213}
+  PlayerCinemachinePanTilt: {fileID: 1824816990538387843}
   HandTransform: {fileID: 2669266662868781088}
 --- !u!114 &9137500905482034484
 MonoBehaviour:
@@ -373,9 +376,7 @@ MonoBehaviour:
   _speed: 5
   _walkFrequency: 2
   _stayFrequency: 1
-  _playerCinemachine: {fileID: 188526330160354072}
-  _playerCinemachineNoise: {fileID: 6403569869180796213}
-  _characterController: {fileID: 8515278789355900370}
+  _playerController: {fileID: 4068284151041108915}
 --- !u!114 &2291024884274755229
 MonoBehaviour:
   m_ObjectHideFlags: 0
