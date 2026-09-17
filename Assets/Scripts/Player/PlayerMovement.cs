@@ -62,16 +62,12 @@ namespace Player
         {
             _isFrozen = true;
             _playerController.PlayerCinemachinePanTilt.enabled = false;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
         }
 
         public void Unfreeze()
         {
             _isFrozen = false;
             _playerController.PlayerCinemachinePanTilt.enabled = true;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

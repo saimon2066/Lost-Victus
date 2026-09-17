@@ -6,8 +6,7 @@ namespace Items
     [RequireComponent(typeof(Rigidbody))]
     public class Item : MonoBehaviour, IInteractable
     {
-        [SerializeField] 
-        private ItemSO _itemSO;
+        public ItemSO ItemSO;
         
         private Rigidbody _rigidbody;
         
@@ -43,12 +42,14 @@ namespace Items
 
         public void Throw(PlayerController playerController)
         {
-            playerController.CurrentItem = null;
-            
-            transform.parent = null;
-            transform.gameObject.layer = LayerMask.NameToLayer("Interactable");
-            _rigidbody.isKinematic = false;
+            Drop(playerController);
             _rigidbody.AddForce(playerController.PlayerCinemachine.transform.forward.normalized * playerController.PlayerInteraction.ThrowPower, ForceMode.Impulse);
+        }
+
+        public void Destroy(PlayerController playerController)
+        {
+            playerController.CurrentItem = null;
+            Destroy(gameObject);
         }
     }
 }

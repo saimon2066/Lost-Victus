@@ -1,5 +1,7 @@
 ﻿using System;
 using Game.Input;
+using NPCharacter;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,14 +11,18 @@ namespace Player
     public class PlayerInteraction : MonoBehaviour
     {
         [Header("Settings")] 
-        [SerializeField] 
-        private LayerMask _interactMask;
-        [SerializeField]
-        private float _interactDistance;
+        [SerializeField] private LayerMask _interactMask;
+        [SerializeField] private float _interactDistance;
+        
         [Header("Throw settings")] 
         public float ThrowPower;
         
+        [Header("References")] 
+        [SerializeField] private CrosshairUI _crosshairUI;
+        
         private PlayerController _playerController;
+
+        private bool _isFrozen;
 
         private void Awake()
         {
@@ -37,8 +43,9 @@ namespace Player
 
         private void Update()
         {
-            if (!InputManager.Instance.Inputs.Player.Interact.WasPerformedThisFrame())
+            if (_isFrozen)
             {
+                _crosshairUI.SetCrosshair(CrosshairUI.CrosshairState.None);
                 return;
             }
             
@@ -47,14 +54,30 @@ namespace Player
             {
                 if (hit.collider.TryGetComponent(out IInteractable interactable))
                 {
-                    interactable.Interact(_playerController);
+                    if (hit.collider.TryGetComponent(out NPCharacterController npCharacterController))
+                    {
+                        _crosshairUI.SetCrosshair(CrosshairUI.CrosshairState.Tap);
+                    }
+                    else
+                    {
+                        _crosshairUI.SetCrosshair(CrosshairUI.CrosshairState.Grab);
+                    }
+
+                    if (InputManager.Instance.Inputs.Player.Interact.WasPerformedThisFrame())
+                    {
+                        interactable.Interact(_playerController);
+                    }
                 }
+            }
+            else
+            {
+                _crosshairUI.SetCrosshair(CrosshairUI.CrosshairState.None);
             }
         }
 
         private void OnDropActionPerformed(InputAction.CallbackContext context)
         {
-            if (_playerController.CurrentItem == null)
+            if (_playerController.CurrentItem == null || _isFrozen)
             {
                 return;
             }
@@ -64,12 +87,22 @@ namespace Player
 
         private void OnThrowActionPerformed(InputAction.CallbackContext context)
         {
-            if (_playerController.CurrentItem == null)
+            if (_playerController.CurrentItem == null || _isFrozen)
             {
                 return;
             }
 
             _playerController.CurrentItem.Throw(_playerController);
+        }
+
+        public void Freeze()
+        {
+            _isFrozen = true;
+        }
+
+        public void Unfreeze()
+        {
+            _isFrozen = false;
         }
     }
 }

@@ -16,6 +16,11 @@ namespace Game.Input
             {
                 Instance = this;
             }
+            else
+            {
+                Destroy(gameObject);
+                Debug.LogWarning("Two or more singletons in the same scene!");
+            }
 
             if (Inputs == null)
             {
