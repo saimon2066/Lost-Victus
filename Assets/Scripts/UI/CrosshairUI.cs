@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ namespace UI
         [SerializeField] private Sprite _crosshairGrab;
         [SerializeField] private Sprite _crosshairTap;
         [SerializeField] private Image _crosshair;
+        public TextMeshProUGUI ItemDisplay;
 
         private CrosshairState _currentState;
 
@@ -24,14 +26,14 @@ namespace UI
             switch (_currentState)
             {
                 case CrosshairState.None:
-                    _crosshair.enabled = false;
+                    _crosshair.gameObject.SetActive(false);
                     break;
                 case CrosshairState.Grab:
-                    _crosshair.enabled = true;
+                    _crosshair.gameObject.SetActive(true);
                     _crosshair.sprite = _crosshairGrab;
                     break;
                 case CrosshairState.Tap:
-                    _crosshair.enabled = true;
+                    _crosshair.gameObject.SetActive(true);
                     _crosshair.sprite = _crosshairTap;
                     break;
             }

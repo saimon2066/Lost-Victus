@@ -13,22 +13,27 @@ MonoBehaviour:
   m_Name: NPCTomas
   m_EditorClassIdentifier: Assembly-CSharp::NPC.NPCSO
   DisplayName: "Tom\xE1\u0161"
+  RequiredNPCs: []
   RequiredItem: {fileID: 11400000, guid: 86e18b890c424984397ebf5ec3c0e508, type: 2}
+  LockedDialogue:
+    Messages: []
   StartDialogue:
     Messages:
-    - ahoj
-    - "klav\xEDr"
-    - "\u010Fakujem"
+    - "Hlad\xE1\u0161 svoj Victus?"
+    - "Vedel by som ti pom\xF4c\u0165 ale ja tatkie\u017E h\u013Ead\xE1m svoj klav\xEDr. Nevie\u0161 kde je?"
+    - "Bolo by super keby si mi ho pomohol n\xE1js\u0165."
   ItemDialogue:
     Messages:
-    - "\u010Fakujem za "
-    - "klav\xEDr "
-    - "idem robi\u0165 sound design"
+    - "\u010Eakujem \u017Ee si mi ho pomohol n\xE1js\u0165."
+    - Hmm...
+    - "Sk\xFAs sa sp\xFDta\u0165 Zuzky"
+    - "Ona by mohla vedie\u0165 kde ho m\xE1\u0161"
   WrongItemDialogue:
     Messages:
-    - "toto nevyzer\xE1"
-    - "ako klav\xEDr"
+    - "Tie\u017E ho neviem n\xE1js\u0165."
+    - "Potom pr\xED\u010F za mnou ke\u010F ho n\xE1jde\u0161"
   AfterDialogue:
     Messages:
-    - "\u010Fakujem \u017Ee si doniesol ten klav\xEDr"
-    - tung tung tung sahur
+    - "\u010Eakujem za t\xFA pomoc s t\xFDm klav\xEDrom!"
+  StartQuest: "N\xE1jdi Tom\xE1\u0161a a povedz mu o Victuse "
+  ItemQuest: "N\xE1jdi Tom\xE1\u0161ov klav\xEDr"

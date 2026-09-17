@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Items;
+using NPCharacter;
 using Unity.Cinemachine;
 using UnityEngine;
 

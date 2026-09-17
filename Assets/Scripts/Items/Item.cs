@@ -25,6 +25,7 @@ namespace Items
             playerController.CurrentItem = this;
 
             _rigidbody.isKinematic = true;
+            _rigidbody.interpolation = RigidbodyInterpolation.None;
             transform.parent = playerController.HandTransform;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
@@ -38,6 +39,7 @@ namespace Items
             transform.parent = null;
             transform.gameObject.layer = LayerMask.NameToLayer("Interactable");
             _rigidbody.isKinematic = false;
+            _rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
         }
 
         public void Throw(PlayerController playerController)

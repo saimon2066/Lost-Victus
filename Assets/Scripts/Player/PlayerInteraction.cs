@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Input;
+using Items;
 using NPCharacter;
 using UI;
 using UnityEngine;
@@ -57,12 +58,14 @@ namespace Player
                     if (hit.collider.TryGetComponent(out NPCharacterController npCharacterController))
                     {
                         _crosshairUI.SetCrosshair(CrosshairUI.CrosshairState.Tap);
+                        _crosshairUI.ItemDisplay.text = npCharacterController.NPCharacterSO.DisplayName;
                     }
-                    else
+                    else if (hit.collider.TryGetComponent(out Item item))
                     {
                         _crosshairUI.SetCrosshair(CrosshairUI.CrosshairState.Grab);
+                        _crosshairUI.ItemDisplay.text = item.ItemSO.DisplayName;
                     }
-
+                    
                     if (InputManager.Instance.Inputs.Player.Interact.WasPerformedThisFrame())
                     {
                         interactable.Interact(_playerController);

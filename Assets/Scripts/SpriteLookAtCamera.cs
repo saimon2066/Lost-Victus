@@ -1,8 +1,9 @@
 ﻿    using UnityEngine;
 
-    [RequireComponent(typeof(Sprite))]
-    public class SpriteLookAtCamera : MonoBehaviour
+    public class SpriteLookAtCamera: MonoBehaviour
     {
+        [SerializeField] private bool _ignoreY;
+           
         private Transform _cameraTransform;
         
         private void Awake()
@@ -10,10 +11,10 @@
             _cameraTransform = Camera.main.transform;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             Vector3 dir = _cameraTransform.forward;
-            dir.y = 0f;
+            dir.y = _ignoreY ? 0f : dir.y;
 
             if (dir.sqrMagnitude > Mathf.Epsilon)
             {

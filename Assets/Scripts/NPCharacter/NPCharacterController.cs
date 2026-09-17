@@ -1,5 +1,6 @@
 ﻿using NPCharacter.Dialogue;
 using Player;
+using Quest;
 using UnityEngine;
 
 namespace NPCharacter
@@ -12,34 +13,67 @@ namespace NPCharacter
         }
         
         [Header("Settings")]
-        [SerializeField] private NPCharacterSO _npCharacterSO;
+        public NPCharacterSO NPCharacterSO;
+
+        public bool IsMet
+        {
+            get { return _stage != Stage.NotMet; }
+        }
 
         private Stage _stage;
         
         public void Interact(PlayerController playerController)
         {
             bool isStarted = false;
+
+            if (NPCharacterSO.RequiredNPCs != null)
+            {
+                foreach (NPCharacterSO required in NPCharacterSO.RequiredNPCs)
+                {
+                    if (!QuestManager.Instance.IsCompleted(required))
+                    {
+                        isStarted = DialogueManager.Instance.StartDialogue(NPCharacterSO.DisplayName, NPCharacterSO.LockedDialogue.Messages, Unfreeze);
+                        if (isStarted)
+                        {
+                            playerController.PlayerMovement.Freeze();
+                            playerController.PlayerInteraction.Freeze();
+                        }
+
+                        return;
+                    }
+                }
+            }
             
             switch (_stage)
             {
                 case Stage.NotMet:
-                    _stage = Stage.Waiting;
-                    isStarted = DialogueManager.Instance.StartDialogue(_npCharacterSO.DisplayName, _npCharacterSO.StartDialogue.Messages, Unfreeze);
-                    break;
-                case Stage.Waiting:
-                    if (playerController.CurrentItem?.ItemSO == _npCharacterSO.RequiredItem)
+                    if (NPCharacterSO.RequiredItem == null)
                     {
                         _stage = Stage.Completed;
-                        playerController.CurrentItem?.Destroy(playerController);
-                        isStarted = DialogueManager.Instance.StartDialogue(_npCharacterSO.DisplayName, _npCharacterSO.ItemDialogue.Messages, Unfreeze);
+                        QuestManager.Instance.CompleteQuest(NPCharacterSO);
                     }
                     else
                     {
-                        isStarted = DialogueManager.Instance.StartDialogue(_npCharacterSO.DisplayName, _npCharacterSO.WrongItemDialogue.Messages, Unfreeze);
+                        _stage = Stage.Waiting;
+                        QuestManager.Instance.CheckQuests();
+                    }
+                    isStarted = DialogueManager.Instance.StartDialogue(NPCharacterSO.DisplayName, NPCharacterSO.StartDialogue.Messages, Unfreeze);
+                    break;
+                case Stage.Waiting:
+                    if (playerController.CurrentItem != null && playerController.CurrentItem.ItemSO == NPCharacterSO.RequiredItem)
+                    {
+                        _stage = Stage.Completed;
+                        playerController.CurrentItem?.Destroy(playerController);
+                        QuestManager.Instance.CompleteQuest(NPCharacterSO);
+                        isStarted = DialogueManager.Instance.StartDialogue(NPCharacterSO.DisplayName, NPCharacterSO.ItemDialogue.Messages, Unfreeze);
+                    }
+                    else
+                    {
+                        isStarted = DialogueManager.Instance.StartDialogue(NPCharacterSO.DisplayName, NPCharacterSO.WrongItemDialogue.Messages, Unfreeze);
                     }
                     break;
                 case Stage.Completed:
-                    isStarted = DialogueManager.Instance.StartDialogue(_npCharacterSO.DisplayName, _npCharacterSO.AfterDialogue.Messages, Unfreeze);
+                    isStarted = DialogueManager.Instance.StartDialogue(NPCharacterSO.DisplayName, NPCharacterSO.AfterDialogue.Messages, Unfreeze);
                     break;
             }
 

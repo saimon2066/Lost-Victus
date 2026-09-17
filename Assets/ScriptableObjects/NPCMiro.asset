@@ -13,21 +13,27 @@ MonoBehaviour:
   m_Name: NPCMiro
   m_EditorClassIdentifier: Assembly-CSharp::NPC.NPCSO
   DisplayName: Miro
-  RequiredItem: {fileID: 11400000, guid: 36d3643f57fa75e44920cb6dc57e28b1, type: 2}
+  RequiredNPCs:
+  - {fileID: 11400000, guid: 04c99feec73de504f8be1db7519b1cd3, type: 2}
+  RequiredItem: {fileID: 0}
+  LockedDialogue:
+    Messages:
+    - "*zvuky p\xE1jkovania*"
+    - "Pr\xED\u010F nesk\xF4r"
   StartDialogue:
     Messages:
-    - 'joj lwk '
-    - dones victus
-    - ok?
+    - "Tak\u017Ee si stratil svoj Victus..."
+    - "Poviem ti pravdu, v\u017Edy som ho mal"
+    - "Ale chcel som \u0165a nau\u010Di\u0165 \u017Ee ke\u010F m\xE1\u0161 tak\xFDto probl\xE9m"
+    - "Tak vyu\u017Ei okam\u017Ei\u0165e helpdesk"
+    - Tu je tvoj Victus
   ItemDialogue:
-    Messages:
-    - joj lowkey dobre idem na to
-    - bzzz bzz bz brr
+    Messages: []
   WrongItemDialogue:
-    Messages:
-    - toto nevyzera ako victus
-    - nechcem to a unreal chcem
+    Messages: []
   AfterDialogue:
     Messages:
-    - dik za ten vicuts
-    - ok
+    - Nezabudni.
+    - "Nabud\xFAce pou\u017E\xEDvaj ticket syst\xE9m."
+  StartQuest: "Cho\u010F za Big M"
+  ItemQuest: 

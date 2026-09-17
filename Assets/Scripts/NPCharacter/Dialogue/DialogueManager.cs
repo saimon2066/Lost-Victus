@@ -10,7 +10,7 @@ namespace NPCharacter.Dialogue
     [Serializable]
     public struct Dialogue
     {
-        public string[] Messages;
+        [TextArea] public string[] Messages;
     }
     
     public class DialogueManager : MonoBehaviour

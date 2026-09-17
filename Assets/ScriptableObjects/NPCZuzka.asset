@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf373dcacea54f7d9368065eb8c2b637, type: 3}
+  m_Name: NPCZuzka
+  m_EditorClassIdentifier: Assembly-CSharp::NPC.NPCSO
+  DisplayName: Zuzka
+  RequiredNPCs:
+  - {fileID: 11400000, guid: 45c5175c7d91e334e876a764cd30a109, type: 2}
+  RequiredItem: {fileID: 11400000, guid: cf48781981a56934b98e8b90387de269, type: 2}
+  LockedDialogue:
+    Messages:
+    - "Sorry, ter\xE1z nem\xF4\u017Eem lebo kresl\xEDm"
+    - "Sk\xFAs pr\xEDs\u0165 o chv\xED\u013Eu"
+  StartDialogue:
+    Messages:
+    - "T\xE1to ma\u013Eba by mohla by\u0165 lep\u0161ia keby som mala svoj \u0161tetec"
+    - "Ty hlad\xE1\u0161 svoj Victus?"
+    - "Zbehol by si mi pre \u0161tetec do labu?"
+    - "Sk\xFAsim zatia\u013E porozm\xFD\u0161la\u0165 kde by mohol by\u0165 tvoj Victus"
+  ItemDialogue:
+    Messages:
+    - "Thanks za ten \u0161tetec"
+    - Tvoj Victus...
+    - "No neviem, Vojtech nejak\xE9 schov\xE1val"
+    - Atleast I think it was Vojtech
+    - "Sk\xFAs a pozrie\u0165 do telocvi\u010Dne, tam by mal by\u0165"
+  WrongItemDialogue:
+    Messages:
+    - "\u0160tetec by mal by\u0165 v labe"
+    - "Sk\xFAs sa tam \xEDs\u0165 pozrie\u0165"
+  AfterDialogue:
+    Messages:
+    - '*zvuky kreslenia*'
+  StartQuest: "Cho\u010F za Zuzkou a sp\xFDtaj sa jej na Victus"
+  ItemQuest: "Dones Zuzke \u0161tetec z labu"

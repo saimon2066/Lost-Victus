@@ -6,6 +6,5 @@ namespace Items
     public class ItemSO : ScriptableObject
     {
         public string DisplayName;
-        public GameObject Prefab;
     }
 }

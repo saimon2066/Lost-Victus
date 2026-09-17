@@ -13,22 +13,30 @@ MonoBehaviour:
   m_Name: NPCSamo
   m_EditorClassIdentifier: Assembly-CSharp::NPC.NPCSO
   DisplayName: Samo
-  RequiredItem: {fileID: 11400000, guid: 20e62cb720e1d5747a7c5de95df313e5, type: 2}
+  RequiredNPCs:
+  - {fileID: 11400000, guid: a6ee9e624ad71b14f9fea925ede3403b, type: 2}
+  RequiredItem: {fileID: 11400000, guid: 1c6e104b49607d045b172396937785ac, type: 2}
+  LockedDialogue:
+    Messages:
+    - "Nem\xF4\u017Eem ti pom\xF4c\u0165 teraz"
+    - "H\u013Ead\xE1m nie\u010Do, pr\xEDd o chv\xED\u013Eu"
   StartDialogue:
     Messages:
-    - 'ahoj '
-    - 'lowk '
-    - "AK mi donesie\u0161 progress checky tak ti poviem pravdu "
+    - Tvoj Victus?
+    - "Ty m\xE1\u0161 nov\xFD?"
+    - "Tie som neschov\xE1val"
+    - Inak nevidel si moj [MISSING]?
+    - 'Fakt by sa teraz hodil. '
   ItemDialogue:
     Messages:
-    - "\u010Fakujem za "
-    - progress checky
-    - "idem oprvai\u0165 a unreal robi\u0165"
+    - "\xC1no [MISSING]!"
+    - "A inak sp\xFDtaj sa Mira, on by mal vedie\u0165."
   WrongItemDialogue:
     Messages:
-    - 'dones ich '
-    - stale cakam
+    - Kde je [MISSING]?
   AfterDialogue:
     Messages:
-    - diki moc este ich opravujem
-    - a robim unreal
+    - "D\xEDki moc \u017Ee si na\u0161iel [MISSING]."
+    - "Fakt si mi dos\u0165 pomohol!"
+  StartQuest: "Cho\u010F za Samom do labu"
+  ItemQuest: "N\xE1jdi [MISSING]"
