@@ -1,18 +1,23 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 
-[RequireComponent(typeof(Sprite))]
-public class SpriteLookAtCamera : MonoBehaviour
-{
-    private Sprite _sprite;
-    
-    private void Awake()
+    [RequireComponent(typeof(Sprite))]
+    public class SpriteLookAtCamera : MonoBehaviour
     {
-        _sprite = GetComponent<Sprite>();
-    }
+        private Transform _cameraTransform;
+        
+        private void Awake()
+        {
+            _cameraTransform = Camera.main.transform;
+        }
 
-    private void Update()
-    {
-        transform.LookAt(Camera.main.transform);
-        transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, 0f);
+        private void Update()
+        {
+            Vector3 dir = _cameraTransform.forward;
+            dir.y = 0f;
+
+            if (dir.sqrMagnitude > Mathf.Epsilon)
+            {
+                transform.rotation = Quaternion.LookRotation(dir);
+            }
+        }
     }
-}

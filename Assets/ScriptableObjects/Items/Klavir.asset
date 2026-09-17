@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47f8dd73f4b44b7bad82ac56f4090d7, type: 3}
   m_Name: Klavir
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemSO
-  DisplayName: 
+  DisplayName: "Klav\xEDr"
   Prefab: {fileID: 0}
