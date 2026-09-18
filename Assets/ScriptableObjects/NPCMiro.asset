@@ -19,21 +19,21 @@ MonoBehaviour:
   LockedDialogue:
     Messages:
     - "*zvuky p\xE1jkovania*"
-    - "Pr\xED\u010F nesk\xF4r"
+    - "Pr\xED\u010F nesk\xF4r."
   StartDialogue:
     Messages:
     - "Tak\u017Ee si stratil svoj Victus..."
-    - "Poviem ti pravdu, v\u017Edy som ho mal"
-    - "Ale chcel som \u0165a nau\u010Di\u0165 \u017Ee ke\u010F m\xE1\u0161 tak\xFDto probl\xE9m"
-    - "Tak vyu\u017Ei okam\u017Ei\u0165e helpdesk"
-    - Tu je tvoj Victus
+    - "Poviem ti pravdu, v\u017Edycky som ho mal!"
+    - "Ale chcel som \u0165a nau\u010Di\u0165 \u017Ee ke\u010F m\xE1\u0161 tak\xFDto probl\xE9m.."
+    - "Tak vyu\u017Ei okam\u017Ei\u0165e helpdesk."
+    - Tu je tvoj Victus.
   ItemDialogue:
     Messages: []
   WrongItemDialogue:
     Messages: []
   AfterDialogue:
     Messages:
-    - Nezabudni.
-    - "Nabud\xFAce pou\u017E\xEDvaj ticket syst\xE9m."
-  StartQuest: "Cho\u010F za Big M"
+    - Nezabudni!
+    - "Nabud\xFAce pou\u017E\xEDvaj ticket syst\xE9m!!"
+  StartQuest: "Cho\u010F za Mirom!"
   ItemQuest: 

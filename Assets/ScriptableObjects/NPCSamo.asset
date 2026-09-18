@@ -18,15 +18,15 @@ MonoBehaviour:
   RequiredItem: {fileID: 11400000, guid: 1c6e104b49607d045b172396937785ac, type: 2}
   LockedDialogue:
     Messages:
-    - "Nem\xF4\u017Eem ti pom\xF4c\u0165 teraz"
-    - "H\u013Ead\xE1m nie\u010Do, pr\xEDd o chv\xED\u013Eu"
+    - "Nem\xF4\u017Eem ti pom\xF4c\u0165 teraz."
+    - "H\u013Ead\xE1m nie\u010Do, pr\xEDd o chv\xED\u013Eu."
   StartDialogue:
     Messages:
     - Tvoj Victus?
     - "Ty m\xE1\u0161 nov\xFD?"
-    - "Tie som neschov\xE1val"
-    - Inak nevidel si moj [MISSING]?
-    - 'Fakt by sa teraz hodil. '
+    - "Tie som neschov\xE1val."
+    - "Inak nevie\u0161 nahodou n\xE1js\u0165 bug v mojej hre?"
+    - "Fakt by sa hodil opravi\u0165 lebo nem\xE1 \u017Eiadnu text\xFAru. "
   ItemDialogue:
     Messages:
     - "\xC1no [MISSING]!"
@@ -38,5 +38,5 @@ MonoBehaviour:
     Messages:
     - "D\xEDki moc \u017Ee si na\u0161iel [MISSING]."
     - "Fakt si mi dos\u0165 pomohol!"
-  StartQuest: "Cho\u010F za Samom do labu"
-  ItemQuest: "N\xE1jdi [MISSING]"
+  StartQuest: "Cho\u010F za Samom do labu."
+  ItemQuest: "N\xE1jdi [MISSING]."

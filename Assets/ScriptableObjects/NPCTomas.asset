@@ -26,12 +26,12 @@ MonoBehaviour:
     Messages:
     - "\u010Eakujem \u017Ee si mi ho pomohol n\xE1js\u0165."
     - Hmm...
-    - "Sk\xFAs sa sp\xFDta\u0165 Zuzky"
-    - "Ona by mohla vedie\u0165 kde ho m\xE1\u0161"
+    - "Sk\xFAs sa sp\xFDta\u0165 Zuzky."
+    - "Ona by mohla vedie\u0165 kde ho m\xE1\u0161."
   WrongItemDialogue:
     Messages:
-    - "Tie\u017E ho neviem n\xE1js\u0165."
-    - "Potom pr\xED\u010F za mnou ke\u010F ho n\xE1jde\u0161"
+    - "Toto moc nevyzer\xE1 ako klav\xEDr."
+    - "Na tomto moc hudbu nesprav\xEDm."
   AfterDialogue:
     Messages:
     - "\u010Eakujem za t\xFA pomoc s t\xFDm klav\xEDrom!"

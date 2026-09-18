@@ -18,23 +18,23 @@ MonoBehaviour:
   RequiredItem: {fileID: 0}
   LockedDialogue:
     Messages:
-    - Teraz neotravuj
-    - "Mus\xEDm to tu uprata\u0165"
-    - "Pr\xED\u010F zachv\xEDlo\u010Dku"
+    - Teraz neotravuj!
+    - "Mus\xEDm to tu uprata\u0165.."
+    - "Pr\xED\u010F zachv\xEDlo\u010Dku."
   StartDialogue:
     Messages:
-    - Ty pepega
-    - Ako si stratil Victus?
-    - "Ja som \u017Eiadne neschov\xE1val"
-    - "Samo schov\xE1val nejak\xE9, asi sa Zuzka pom\xFDlila"
-    - "Sk\xFAs \xEDs\u0165 za n\xEDm"
+    - Ty pepega!
+    - Ako si stratil Victus?!
+    - "Ja som \u017Eiadne neschov\xE1val."
+    - "Samo schov\xE1val nejak\xE9, asi sa Zuzka pom\xFDlila."
+    - "Sk\xFAs \xEDs\u0165 za n\xEDm ur\u010Dite bude vedie\u0165!"
   ItemDialogue:
     Messages: []
   WrongItemDialogue:
     Messages: []
   AfterDialogue:
     Messages:
-    - "Ke\u010F rob\xED\u0161 modely"
-    - "Nezab\xFAdaj na topol\xF3giu"
-  StartQuest: "Cho\u010F sa sp\xFDta\u0165 Vojtecha \u010Di neschoval tvoj Victus"
+    - "Ke\u010F rob\xED\u0161 modely."
+    - "Nezab\xFAdaj na topol\xF3giu!"
+  StartQuest: "Cho\u010F sa sp\xFDta\u0165 Vojtecha \u010Di neschoval omylom tvoj Victus."
   ItemQuest: 
