@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NPCharacter;
 using TMPro;
 using UnityEngine;
@@ -26,6 +27,8 @@ namespace Quest
         [SerializeField] private float _questMarkerHeight;
         [SerializeField] private TextMeshProUGUI _questDisplay;
         [SerializeField] private NPCharacterController[] _npcs;
+
+        public Action QuestsCompleted;
         
         private readonly List<NPCharacterSO> _completedNPCs = new List<NPCharacterSO>();
 
@@ -52,6 +55,8 @@ namespace Quest
 
             _questDisplay.text = "";
             _questMarker.SetActive(false);
+            
+            QuestsCompleted?.Invoke();
         }
 
         public void CompleteQuest(NPCharacterSO npCharacterSO)

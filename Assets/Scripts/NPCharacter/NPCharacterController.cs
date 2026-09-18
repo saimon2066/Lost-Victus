@@ -50,7 +50,6 @@ namespace NPCharacter
                     if (NPCharacterSO.RequiredItem == null)
                     {
                         _stage = Stage.Completed;
-                        QuestManager.Instance.CompleteQuest(NPCharacterSO);
                     }
                     else
                     {
@@ -64,7 +63,6 @@ namespace NPCharacter
                     {
                         _stage = Stage.Completed;
                         playerController.CurrentItem?.Destroy(playerController);
-                        QuestManager.Instance.CompleteQuest(NPCharacterSO);
                         isStarted = DialogueManager.Instance.StartDialogue(NPCharacterSO.DisplayName, NPCharacterSO.ItemDialogue.Messages, Unfreeze);
                     }
                     else
@@ -89,6 +87,11 @@ namespace NPCharacter
             {
                 playerController.PlayerMovement.Unfreeze();
                 playerController.PlayerInteraction.Unfreeze();
+                
+                if (_stage == Stage.Completed && !QuestManager.Instance.IsCompleted(NPCharacterSO))
+                {
+                    QuestManager.Instance.CompleteQuest(NPCharacterSO);
+                }
             }
         }
     }
